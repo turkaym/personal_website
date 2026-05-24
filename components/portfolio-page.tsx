@@ -9,7 +9,10 @@ import {
   FaSun,
   FaArrowUpRightFromSquare,
   FaGlobe,
-  FaJava
+  FaJava,
+  FaServer,
+  FaDatabase,
+  FaDiagramProject
 } from 'react-icons/fa6';
 import { SiSpringboot, SiReact, SiTypescript, SiFastapi, SiMysql, SiGit, SiDocker, SiPostgresql, SiMongodb, SiHibernate } from 'react-icons/si';
 
@@ -36,9 +39,21 @@ const content = {
     stackIntro: 'Backend first, with frontend as a complementary skill when the product needs it.',
     servicesTitle: 'Freelance services',
     services: [
-      'REST API development with Java + Spring Boot',
-      'Business logic and database integration',
-      'Persistence with Hibernate/JPA and SQL/NoSQL databases'
+      {
+        title: 'Backend APIs',
+        description: 'REST API development with Java, Spring Boot, validation, clean endpoints, and maintainable service layers.',
+        tag: 'Java · Spring Boot'
+      },
+      {
+        title: 'Business logic',
+        description: 'Domain rules, workflows, integrations, and backend structure designed around real product needs.',
+        tag: 'Architecture · Services'
+      },
+      {
+        title: 'Persistence layer',
+        description: 'Database modeling, Hibernate/JPA mappings, SQL/NoSQL persistence, and data-driven backend features.',
+        tag: 'JPA · SQL · NoSQL'
+      }
     ],
     contactTitle: 'Contact me',
     contactText: 'Send me a message and I will reply soon.',
@@ -73,9 +88,21 @@ const content = {
     stackIntro: 'Backend primero, con frontend como complemento cuando el producto lo necesita.',
     servicesTitle: 'Servicios freelance',
     services: [
-      'Desarrollo de APIs REST con Java + Spring Boot',
-      'Lógica de negocio e integración con base de datos',
-      'Persistencia con Hibernate/JPA y bases de datos SQL/NoSQL'
+      {
+        title: 'APIs backend',
+        description: 'Desarrollo de APIs REST con Java, Spring Boot, validaciones, endpoints claros y capas de servicio mantenibles.',
+        tag: 'Java · Spring Boot'
+      },
+      {
+        title: 'Lógica de negocio',
+        description: 'Reglas de dominio, flujos, integraciones y estructura backend pensada para necesidades reales de producto.',
+        tag: 'Arquitectura · Servicios'
+      },
+      {
+        title: 'Capa de persistencia',
+        description: 'Modelado de datos, mapeos con Hibernate/JPA, persistencia SQL/NoSQL y funcionalidades basadas en datos.',
+        tag: 'JPA · SQL · NoSQL'
+      }
     ],
     contactTitle: 'Contactame',
     contactText: 'Enviame un mensaje y te respondo pronto.',
@@ -178,6 +205,8 @@ const stackGroups = [
     ]
   }
 ];
+
+const serviceIcons = [FaServer, FaDiagramProject, FaDatabase];
 
 export function PortfolioPage({ lang }: { lang: Lang }) {
   const t = content[lang];
@@ -285,7 +314,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
           </div>
         </div>
         <Image
-          src="/profile.jpg"
+          src="/profile2.png"
           alt="Farid Salomon"
           width={420}
           height={520}
@@ -311,20 +340,20 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
               key={p.name}
               className="group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-lg shadow-zinc-900/5 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:shadow-black/30"
             >
-              <div className={`relative min-h-40 bg-gradient-to-br ${p.accent} ${p.darkAccent} p-4`}>
+              <div className={`relative h-80 bg-gradient-to-br ${p.accent} ${p.darkAccent} p-4`}>
                 <a
                   href={p.live}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`${p.name} website`}
-                  className="block rounded-2xl border border-white/70 bg-white/75 p-3 shadow-xl shadow-zinc-900/10 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint-100 dark:border-white/10 dark:bg-zinc-950/55"
+                  className="flex h-[17rem] flex-col rounded-2xl border border-white/70 bg-white/75 p-3 shadow-xl shadow-zinc-900/10 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint-100 dark:border-white/10 dark:bg-zinc-950/55"
                 >
                   <div className="mb-4 flex gap-1.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
                     <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
                   </div>
-                  <div className="flex min-h-24 items-center justify-center rounded-xl bg-white/70 p-3 dark:bg-zinc-950/30">
+                  <div className="flex h-28 items-center justify-center rounded-xl bg-white/70 p-3 dark:bg-zinc-950/30">
                     <Image
                       src={p.darkLogo && dark ? p.darkLogo : p.logo}
                       alt={`${p.name} logo`}
@@ -334,8 +363,8 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                     />
                   </div>
                   <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-slategray dark:text-zinc-400">{t.preview}</p>
-                  <p className="mt-1 font-semibold text-charcoal dark:text-white">{p.previewTitle}</p>
-                  <div className="mt-4 h-2 rounded-full bg-charcoal/10 dark:bg-white/15" />
+                  <p className="mt-1 min-h-12 font-semibold text-charcoal dark:text-white">{p.previewTitle}</p>
+                  <div className="mt-auto h-2 rounded-full bg-charcoal/10 dark:bg-white/15" />
                   <div className="mt-2 h-2 w-2/3 rounded-full bg-charcoal/10 dark:bg-white/15" />
                 </a>
                 <span className="absolute bottom-4 right-4 rounded-full bg-charcoal px-3 py-1 text-xs text-white dark:bg-mint-100 dark:text-charcoal">
@@ -344,10 +373,10 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="text-lg font-semibold">{p.name}</h3>
-                <p className="mt-2 text-sm leading-6 text-slategray dark:text-zinc-300 md:min-h-24">
+                <p className="mt-2 text-sm leading-6 text-slategray dark:text-zinc-300 md:min-h-[6rem]">
                   {lang === 'en' ? p.summaryEn : p.summaryEs}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex min-h-[4.25rem] flex-wrap content-start gap-2">
                   {p.tech.map((tech) => (
                     <span key={tech} className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700 transition group-hover:bg-mint-100/30 dark:bg-zinc-800 dark:text-zinc-300 dark:group-hover:bg-mint-100/10">
                       {tech}
@@ -410,11 +439,27 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
 
       <section id="services" className="container-page fade-up py-9 md:py-10 scroll-mt-24">
         <h2 className="text-2xl font-semibold">{t.servicesTitle}</h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-zinc-700 dark:text-zinc-300">
-          {t.services.map((service) => (
-            <li key={service}>{service}</li>
-          ))}
-        </ul>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {t.services.map((service, index) => {
+            const Icon = serviceIcons[index];
+
+            return (
+              <article
+                key={service.title}
+                className="group rounded-3xl border border-zinc-200/80 bg-white/75 p-5 shadow-lg shadow-zinc-900/5 transition hover:-translate-y-1 hover:border-mint-100 hover:bg-gradient-to-br hover:from-mint-100/25 hover:to-softblue-100/20 hover:shadow-xl hover:shadow-mint-100/20 dark:border-zinc-800 dark:bg-zinc-900/80 dark:hover:border-mint-100/35 dark:hover:from-mint-100/10 dark:hover:to-softblue-100/10"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-charcoal text-mint-100 transition group-hover:scale-105 dark:bg-mint-100 dark:text-charcoal">
+                  <Icon />
+                </div>
+                <h3 className="mt-4 font-semibold">{service.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slategray dark:text-zinc-300">{service.description}</p>
+                <span className="mt-4 inline-flex rounded-full bg-mint-100/40 px-3 py-1 text-xs font-medium text-charcoal dark:bg-mint-100/10 dark:text-mint-100">
+                  {service.tag}
+                </span>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
       <section id="contact" className="container-page fade-up py-9 md:py-10 scroll-mt-24">
@@ -512,14 +557,6 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                 className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white/60 px-3 py-2 transition hover:-translate-y-0.5 hover:border-softblue-100 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-softblue-100 dark:border-zinc-600 dark:bg-zinc-950/30 dark:hover:border-softblue-100/40 dark:hover:bg-zinc-900"
               >
                 <FaLinkedin /> LinkedIn
-              </a>
-              <a
-                href="https://faridsalomon.com"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white/60 px-3 py-2 transition hover:-translate-y-0.5 hover:border-mint-100 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint-100 dark:border-zinc-600 dark:bg-zinc-950/30 dark:hover:border-mint-100/40 dark:hover:bg-zinc-900"
-              >
-                <FaGlobe /> faridsalomon.com
               </a>
             </div>
           </div>
