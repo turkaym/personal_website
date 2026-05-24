@@ -11,7 +11,7 @@ import {
   FaGlobe,
   FaJava
 } from 'react-icons/fa6';
-import { SiSpringboot, SiReact, SiTypescript, SiFastapi, SiMysql, SiGit } from 'react-icons/si';
+import { SiSpringboot, SiReact, SiTypescript, SiFastapi, SiMysql, SiGit, SiDocker, SiPostgresql, SiMongodb, SiHibernate } from 'react-icons/si';
 
 type Lang = 'en' | 'es';
 
@@ -23,23 +23,22 @@ const content = {
     navServices: 'Services',
     navContact: 'Contact',
     heroTitle:
-      'Backend-focused Full-Stack Developer building reliable web applications with Java & Spring Boot.',
+      'Backend Developer building reliable applications with Java & Spring Boot.',
     heroSubtitle:
       "I help companies and clients build practical products with a strong backend foundation and clean architecture.",
     ctaProjects: 'View projects',
     ctaContact: 'Let’s work together',
     aboutTitle: 'About me',
     aboutText:
-      'I am Farid Salomon, a university programming student in my final year, focused on the Java ecosystem, Spring Boot, backend architecture, APIs, and databases. I work with React and TypeScript too, but I treat frontend as a complementary skill to support complete products while my strongest focus remains backend engineering.',
-    aboutHighlights: ['Final-year programming student', 'Java, Spring Boot, APIs', 'Backend architecture and databases'],
+      'I am Farid Salomon, a backend-oriented developer focused on the Java ecosystem, Spring Boot, REST APIs, persistence with Hibernate/JPA, and database design. I also use React and TypeScript as complementary tools when a product needs a clear interface, but my strongest focus is backend engineering. I work with SQL and NoSQL databases, essential tools like Docker and Git, and I have an advanced level of English.',
     projectsTitle: 'Featured projects',
     stackTitle: 'Technologies',
-    stackIntro: 'Backend first, with frontend skills where products need them.',
+    stackIntro: 'Backend first, with frontend as a complementary skill when the product needs it.',
     servicesTitle: 'Freelance services',
     services: [
       'REST API development with Java + Spring Boot',
       'Business logic and database integration',
-      'Frontend integration with React/TypeScript'
+      'Persistence with Hibernate/JPA and SQL/NoSQL databases'
     ],
     contactTitle: 'Contact me',
     contactText: 'Send me a message and I will reply soon.',
@@ -48,12 +47,11 @@ const content = {
     send: 'Send message',
     theme: 'Theme',
     lang: 'ES',
-    live: 'Live',
-    domain: 'Domain',
+    live: 'Website',
+    repository: 'GitHub',
     comingSoon: 'Coming soon',
     preview: 'Preview',
-    footerText: 'Backend-focused developer building practical products with Java, Spring Boot, APIs, databases, and thoughtful frontend integration.',
-    footerClosing: 'Built with a backend-first mindset, clear interfaces, and product care.'
+    directLinks: 'Direct links'
   },
   es: {
     navAbout: 'Sobre mí',
@@ -62,23 +60,22 @@ const content = {
     navServices: 'Servicios',
     navContact: 'Contacto',
     heroTitle:
-      'Desarrollador Full Stack orientado a Backend, construyendo aplicaciones web confiables con Java y Spring Boot.',
+      'Desarrollador Backend construyendo aplicaciones confiables con Java y Spring Boot.',
     heroSubtitle:
       'Ayudo a empresas y clientes a construir productos prácticos con una base backend sólida y arquitectura limpia.',
     ctaProjects: 'Ver proyectos',
     ctaContact: 'Trabajemos juntos',
     aboutTitle: 'Sobre mí',
     aboutText:
-      'Soy Farid Salomon, estudiante universitario de programación en el último año, con foco en el ecosistema Java, Spring Boot, arquitectura backend, APIs y bases de datos. También trabajo con React y TypeScript, pero lo entiendo como un complemento para construir productos completos: mi fortaleza principal está en backend.',
-    aboutHighlights: ['Último año de programación', 'Java, Spring Boot y APIs', 'Arquitectura backend y bases de datos'],
+      'Soy Farid Salomon, desarrollador orientado a backend con foco en el ecosistema Java, Spring Boot, APIs REST, persistencia con Hibernate/JPA y diseño de bases de datos. También uso React y TypeScript como herramientas complementarias cuando el producto necesita una interfaz clara, pero mi fortaleza principal está en backend. Trabajo con bases de datos SQL y NoSQL, herramientas esenciales como Docker y Git, y tengo nivel avanzado de inglés.',
     projectsTitle: 'Proyectos destacados',
     stackTitle: 'Tecnologías',
-    stackIntro: 'Backend primero, con frontend cuando el producto lo necesita.',
+    stackIntro: 'Backend primero, con frontend como complemento cuando el producto lo necesita.',
     servicesTitle: 'Servicios freelance',
     services: [
       'Desarrollo de APIs REST con Java + Spring Boot',
       'Lógica de negocio e integración con base de datos',
-      'Integración frontend con React/TypeScript'
+      'Persistencia con Hibernate/JPA y bases de datos SQL/NoSQL'
     ],
     contactTitle: 'Contactame',
     contactText: 'Enviame un mensaje y te respondo pronto.',
@@ -87,12 +84,11 @@ const content = {
     send: 'Enviar mensaje',
     theme: 'Tema',
     lang: 'EN',
-    live: 'Demo',
-    domain: 'Dominio',
+    live: 'Web',
+    repository: 'GitHub',
     comingSoon: 'Próximamente',
     preview: 'Vista previa',
-    footerText: 'Desarrollador orientado a backend, construyendo productos prácticos con Java, Spring Boot, APIs, bases de datos e integración frontend cuidada.',
-    footerClosing: 'Construido con mentalidad backend-first, interfaces claras y criterio de producto.'
+    directLinks: 'Links directos'
   }
 } as const;
 
@@ -101,8 +97,11 @@ const projects = [
     name: 'Ospaat',
     summaryEn: 'Healthcare platform for sugarcane workers social coverage.',
     summaryEs: 'Plataforma de obra social para trabajadores de la caña de azúcar.',
-    tech: ['FastAPI', 'Python', 'JavaScript', 'HTML/CSS'],
+    tech: ['FastAPI', 'Python', 'MySQL', 'HTML/CSS'],
     live: 'https://ospaat.com.ar',
+    repo: 'https://github.com/turkaym/ospaat_web',
+    logo: '/LOGOTIPO_Mesa de trabajo 1.png',
+    logoClass: 'h-16 w-auto max-w-[13rem] object-contain',
     accent: 'from-softblue-100 via-white to-mint-100',
     darkAccent: 'dark:from-slate-800 dark:via-zinc-900 dark:to-emerald-950',
     previewTitle: 'Healthcare coverage portal',
@@ -112,8 +111,11 @@ const projects = [
     name: 'El Tano Frutos Secos',
     summaryEn: 'Ecommerce storefront and business workflow for a local dried-fruit brand.',
     summaryEs: 'Tienda online y flujo comercial para una marca local de frutos secos.',
-    tech: ['Java', 'Spring Boot', 'TypeScript', 'HTML/CSS'],
+    tech: ['Java', 'Spring Boot', 'PostgreSQL', 'TypeScript'],
     live: 'https://frutoseltano.com.ar',
+    repo: 'https://github.com/turkaym/elTano-ecommerce',
+    logo: '/logo.png',
+    logoClass: 'h-24 w-24 object-contain',
     accent: 'from-mint-100 via-white to-amber-100',
     darkAccent: 'dark:from-emerald-950 dark:via-zinc-900 dark:to-yellow-950',
     previewTitle: 'Ecommerce catalog',
@@ -123,8 +125,12 @@ const projects = [
     name: 'Farid Salomon Portfolio',
     summaryEn: 'This personal portfolio, built to present backend focus, projects, and contact paths clearly.',
     summaryEs: 'Este portfolio personal, creado para presentar foco backend, proyectos y vías de contacto con claridad.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'pnpm'],
     live: 'https://faridsalomon.com',
+    repo: 'https://github.com/turkaym/personal_website',
+    logo: '/logoBlanco.png',
+    darkLogo: '/logoOscuro.png',
+    logoClass: 'h-14 w-auto max-w-[12rem] object-contain',
     accent: 'from-charcoal/10 via-white to-softblue-100',
     darkAccent: 'dark:from-zinc-800 dark:via-zinc-900 dark:to-sky-950',
     previewTitle: 'Personal brand site',
@@ -136,20 +142,23 @@ const stackGroups = [
   {
     title: 'Backend core',
     titleEs: 'Base backend',
-    description: 'Primary focus for business logic, APIs, services, and maintainable server-side systems.',
-    descriptionEs: 'Foco principal para lógica de negocio, APIs, servicios y sistemas backend mantenibles.',
+    description: 'Primary focus for business logic, APIs, services, persistence, and maintainable server-side systems.',
+    descriptionEs: 'Foco principal para lógica de negocio, APIs, servicios, persistencia y sistemas backend mantenibles.',
     featured: true,
     items: [
       { name: 'Java', icon: FaJava },
       { name: 'Spring Boot', icon: SiSpringboot },
-      { name: 'SQL / MySQL', icon: SiMysql }
+      { name: 'Hibernate / JPA', icon: SiHibernate },
+      { name: 'SQL / MySQL', icon: SiMysql },
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'NoSQL', icon: SiMongodb }
     ]
   },
   {
-    title: 'Product frontend',
-    titleEs: 'Frontend de producto',
-    description: 'Used to connect interfaces with backend capabilities and deliver complete web experiences.',
-    descriptionEs: 'Usado para conectar interfaces con capacidades backend y entregar experiencias web completas.',
+    title: 'Complementary frontend',
+    titleEs: 'Frontend complementario',
+    description: 'Used as a complement to connect interfaces with backend capabilities when the product needs it.',
+    descriptionEs: 'Usado como complemento para conectar interfaces con capacidades backend cuando el producto lo necesita.',
     featured: false,
     items: [
       { name: 'React', icon: SiReact },
@@ -159,11 +168,12 @@ const stackGroups = [
   {
     title: 'Tools and APIs',
     titleEs: 'Herramientas y APIs',
-    description: 'Supporting tools for delivery, collaboration, and API-driven applications.',
-    descriptionEs: 'Herramientas de apoyo para entrega, colaboración y aplicaciones basadas en APIs.',
+    description: 'Essential tools for delivery, collaboration, containers, and API-driven applications.',
+    descriptionEs: 'Herramientas esenciales para entrega, colaboración, contenedores y aplicaciones basadas en APIs.',
     featured: false,
     items: [
       { name: 'FastAPI', icon: SiFastapi },
+      { name: 'Docker', icon: SiDocker },
       { name: 'Git & GitHub', icon: SiGit }
     ]
   }
@@ -286,18 +296,9 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
 
       <section id="about" className="container-page fade-up py-9 md:py-10 scroll-mt-24">
         <div className="rounded-3xl border border-zinc-200/80 bg-white/75 p-6 shadow-xl shadow-zinc-900/5 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70 md:p-8">
-          <div className="grid gap-6 md:grid-cols-[1.3fr_1fr] md:items-start">
-            <div>
-              <h2 className="text-2xl font-semibold">{t.aboutTitle}</h2>
-              <p className="mt-4 leading-7 text-slategray dark:text-zinc-300">{t.aboutText}</p>
-            </div>
-            <div className="grid gap-3">
-              {t.aboutHighlights.map((highlight) => (
-                <div key={highlight} className="flex min-h-12 items-center rounded-2xl border border-mint-100/60 bg-mint-100/20 px-3.5 py-2.5 text-sm font-medium leading-snug text-charcoal dark:border-mint-100/20 dark:bg-mint-100/10 dark:text-zinc-100 sm:px-4">
-                  {highlight}
-                </div>
-              ))}
-            </div>
+          <div className="max-w-4xl">
+            <h2 className="text-2xl font-semibold">{t.aboutTitle}</h2>
+            <p className="mt-4 leading-7 text-slategray dark:text-zinc-300">{t.aboutText}</p>
           </div>
         </div>
       </section>
@@ -311,17 +312,32 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
               className="group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-lg shadow-zinc-900/5 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-zinc-900/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:shadow-black/30"
             >
               <div className={`relative min-h-40 bg-gradient-to-br ${p.accent} ${p.darkAccent} p-4`}>
-                <div className="rounded-2xl border border-white/70 bg-white/75 p-3 shadow-xl shadow-zinc-900/10 backdrop-blur dark:border-white/10 dark:bg-zinc-950/55">
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${p.name} website`}
+                  className="block rounded-2xl border border-white/70 bg-white/75 p-3 shadow-xl shadow-zinc-900/10 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint-100 dark:border-white/10 dark:bg-zinc-950/55"
+                >
                   <div className="mb-4 flex gap-1.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
                     <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
                   </div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slategray dark:text-zinc-400">{t.preview}</p>
-                  <p className="mt-2 font-semibold text-charcoal dark:text-white">{p.previewTitle}</p>
+                  <div className="flex min-h-24 items-center justify-center rounded-xl bg-white/70 p-3 dark:bg-zinc-950/30">
+                    <Image
+                      src={p.darkLogo && dark ? p.darkLogo : p.logo}
+                      alt={`${p.name} logo`}
+                      width={220}
+                      height={120}
+                      className={`${p.logoClass} transition duration-300 group-hover:scale-105`}
+                    />
+                  </div>
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-slategray dark:text-zinc-400">{t.preview}</p>
+                  <p className="mt-1 font-semibold text-charcoal dark:text-white">{p.previewTitle}</p>
                   <div className="mt-4 h-2 rounded-full bg-charcoal/10 dark:bg-white/15" />
                   <div className="mt-2 h-2 w-2/3 rounded-full bg-charcoal/10 dark:bg-white/15" />
-                </div>
+                </a>
                 <span className="absolute bottom-4 right-4 rounded-full bg-charcoal px-3 py-1 text-xs text-white dark:bg-mint-100 dark:text-charcoal">
                   {p.previewMeta}
                 </span>
@@ -347,7 +363,14 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                   >
                     <FaArrowUpRightFromSquare /> {t.live}
                   </a>
-                  <span className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-zinc-100 px-3 py-2 text-center text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"><FaGlobe /> {t.domain}</span>
+                  <a
+                    className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-zinc-100 px-3 py-2 text-center text-zinc-700 transition hover:border-softblue-100 hover:bg-softblue-100/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-softblue-100 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:border-softblue-100/40 dark:hover:bg-softblue-100/10"
+                    href={p.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaGithub /> {t.repository}
+                  </a>
                 </div>
               </div>
             </article>
@@ -470,20 +493,10 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
         </p>
       </section>
       <footer className="container-page py-12">
-        <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-gradient-to-br from-white via-lightbg to-softblue-100/40 px-5 py-6 shadow-xl shadow-zinc-900/5 dark:border-zinc-700 dark:from-zinc-900 dark:via-zinc-900 dark:to-slate-900 md:px-7">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-xl">
-              <Image
-                src={dark ? '/footerOscuro.png' : '/footerBlanco.png'}
-                alt="Farid Salomon backend-focused developer"
-                width={320}
-                height={120}
-                className="h-auto w-56 object-contain sm:w-64 md:w-72"
-              />
-              <p className="mt-3 text-sm leading-6 text-slategray dark:text-zinc-300">{t.footerText}</p>
-              <p className="mt-4 text-sm font-medium text-charcoal dark:text-mint-100">{t.footerClosing}</p>
-            </div>
-            <div className="flex flex-wrap gap-3 text-sm md:justify-end">
+        <div className="rounded-3xl border border-zinc-200 bg-white/70 px-5 py-7 shadow-xl shadow-zinc-900/5 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70 md:px-8">
+          <div className="flex flex-col items-center gap-5 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slategray dark:text-zinc-400">{t.directLinks}</p>
+            <div className="flex w-full flex-wrap justify-center gap-3 text-sm">
               <a
                 href="https://github.com/turkaym"
                 target="_blank"

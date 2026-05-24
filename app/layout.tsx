@@ -7,13 +7,13 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://faridsalomon.com'),
-  title: 'Farid Salomon | Backend-focused Full-Stack Developer',
+  title: 'Farid Salomon | Backend Developer',
   description:
-    'Backend-focused Full-Stack Developer focused on Java, Spring Boot, APIs, and database-driven applications.',
+    'Backend Developer focused on Java, Spring Boot, APIs, persistence, and database-driven applications.',
   openGraph: {
     title: 'Farid Salomon Portfolio',
     description:
-      'Backend-focused Full-Stack Developer building reliable web applications with Java & Spring Boot.',
+      'Backend Developer building reliable applications with Java, Spring Boot, APIs, and databases.',
     url: 'https://faridsalomon.com',
     siteName: 'Farid Salomon Portfolio',
     images: [
