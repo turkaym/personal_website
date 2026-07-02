@@ -211,13 +211,27 @@ const serviceIcons = [FaServer, FaDiagramProject, FaDatabase];
 export function PortfolioPage({ lang }: { lang: Lang }) {
   const t = content[lang];
   const [dark, setDark] = useState(false);
+  const [themeReady, setThemeReady] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<'success' | 'error' | null>(null);
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
+    const storedTheme = window.localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldUseDarkTheme = storedTheme ? storedTheme === 'dark' : prefersDark;
+
+    setDark(shouldUseDarkTheme);
+    document.documentElement.classList.toggle('dark', shouldUseDarkTheme);
+    setThemeReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!themeReady) return;
+
     document.documentElement.classList.toggle('dark', dark);
-  }, [dark]);
+    window.localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }, [dark, themeReady]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
