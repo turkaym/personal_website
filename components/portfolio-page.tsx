@@ -155,7 +155,7 @@ const projects = [
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'pnpm'],
     live: 'https://faridsalomon.com',
     repo: 'https://github.com/turkaym/personal_website',
-    logo: '/logoBlanco.png',
+    logo: '/logoOscuro.png',
     darkLogo: '/logoOscuro.png',
     logoClass: 'h-14 w-auto max-w-[12rem] object-contain',
     accent: 'from-charcoal/10 via-white to-softblue-100',
@@ -275,7 +275,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
         <div className="container-page flex items-center justify-between py-4">
           <div className="flex items-center">
             <Image
-              src={dark ? '/logoOscuro.png' : '/logoBlanco.png'}
+              src="/logoOscuro.png"
               alt="Farid Salomon"
               width={172}
               height={44}
